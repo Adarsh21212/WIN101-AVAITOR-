@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIN101 Aviator</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #141E30, #243B55);
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff512f, #dd2476);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+      margin-bottom: 40px;
+    }
+
+    .liner {
+      width: 500px;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 4px 15px rgba(255, 255, 255, 0.1);
+      margin: 20px;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    #telegram-link {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #telegram-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+    }
+
+    .winner {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1>WIN101 AVIATOR</h1>
+  <div class="liner" id="liner1">FLY IN: 6</div>
+  <div class="liner" id="liner2">WAIT...</div>
+  <a id="telegram-link" href="https://win101-aviator.vip/register?refer505050" target="_blank">OPEN GAME</a>
+  <div class="winner" id="winner">: Loading...</div>
+
+  <script>
+    // Countdown logic for the first liner
+    let countdown = 6;
+    setInterval(() => {
+      document.getElementById('liner1').textContent = `TAKE OFF IN: ${countdown}`;
+      countdown--;
+      if (countdown < 0) {
+        countdown = 6;
+      }
+    }, 1000);
+
+    // Function to generate a random prediction between 2x and 100x
+    function generatePrediction() {
+      return `${(Math.random() * (100 - 2) + 2).toFixed(1)}x`;
+    }
+
+    // Update predictions in the second liner every 6 seconds
+    setInterval(() => {
+      document.getElementById('liner2').textContent = generatePrediction();
+    }, 6000);
+
+    // Function to generate a random Indian name
+    function getRandomIndianName() {
+      const names = ["Rahul", "Priya", "Amit", "Sanjana", "Rajesh", "Neha", "Karthik", "Pooja", "Vikas", "Sneha"];
+      return names[Math.floor(Math.random() * names.length)];
+    }
+
+    // Function to generate a random winning price
+    function getRandomWinningPrice() {
+      const price = Math.floor(Math.random() * (5000 - 1000) + 1000);
+      return `₹${price}`;
+    }
+
+    // Update the random winner name and price every second
+    setInterval(() => {
+      const winnerName = getRandomIndianName();
+      const winningPrice = getRandomWinningPrice();
+      document.getElementById('winner').textContent = `: ${winnerName} won ${winningPrice}`;
+    }, 1000);
+  </script>
+</body>
+</html>
